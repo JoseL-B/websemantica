@@ -1,0 +1,106 @@
+
+/* CSS para el formato al artículo completo */
+
+/*
+  Cada artículo completo, por ejemplo "articulo-1.html", sólo tiene
+  una etiqueta article. El contenido "nuevo" se encuentra ahí.
+*/
+article > header {
+  background-color: #5c4033;
+  position: relative; /* Para posicionar el título sobre la imagen*/
+  height: 0rem; /* Aunque no es necesario lo pongo para facilitar la lectura */
+}
+
+/* Posicionamos el h2 en el centro y sobre la imagen principal */
+article > header h2 {
+  font-size: 2em;
+  color: #333;
+  /*
+      Para centrar el título en la horizontal y que
+      pueda pasar por encima de la imagen de ser necesario
+  */
+  position: absolute;
+  top: 1rem;
+  left: 50%; /* No centra del todo el objeto */
+  /*
+      Mueve un 50% del ancho del objeto y así se centra del todo
+      Luego lo gira 1 grado
+  */
+  transform: translateX(-50%) rotate(1deg);
+  padding: 0.3rem;
+  text-align: center;
+  background-color: cornsilk;
+  border: solid 1px #5c4033;
+  z-index: 1; /* Añadido: para asegurar que esté por encima de la imagen */
+}
+
+/* Creo un id porque preciso de javascript y así se ve más claro lo que hace
+  Por ahora no precisa de css y lo mejor sería eliminarlo/comentarlo
+#titulo {
+
+}
+*/
+
+/*
+  Es el id que se ha creado en lugar de un section con el contenido
+  No se precisa de otro título y así considero que de mejor claridad
+*/
+#contenido {
+  /*line-height: 1.6;*/
+  padding: 1.2rem;
+  margin: 1rem;
+  overflow: hidden; /* Por el float de la imagen */
+}
+
+/*
+  Para seleccionar la primera imagen, que es la identificativa
+  Quizás habría sido mejor poner un id, para prevenir la existencia de artículos sin imagen,
+  pero siempre puedo poner a todos los atículos una imagen genérica para que tengan el mismo formato.
+*/
+#contenido > img:first-of-type {
+  float: left;
+  max-width: 40%;
+  min-width: 8rem;
+  height: auto; /* La altura se ajusta automáticamente para que mantenga el aspecto */
+  margin: 0 0.15rem 0 0;
+}
+
+/* Para el formato de las tags */
+.articulo-tags h3 {
+  margin-bottom: 0.5rem;
+  font-size: 1.1em;
+  color: #333;
+}
+
+/* La barra de abajo donde se muestra las tags del artículo */
+.tags-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+/*
+  Es cada enlace con la tag que se encuentra en el li
+  del ul (tags-container)
+*/
+.tag {
+  display: inline-block;
+  padding: 5px 15px;
+  background-color: #6b8e23;
+  color: white;
+  text-decoration: none;
+  border-radius: 20px;
+  font-size: 0.9em;
+  transition: background-color 0.3s;
+}
+
+.tag:hover {
+  background-color: #5c4033;
+}
+
+/* Ajustes responsive para reducir el tamaño de la letra del título */
+@media (max-width: 768px) {
+  article > header h2 {
+      font-size: 1.5em;
+  }
+}

@@ -1,0 +1,178 @@
+
+
+/* Colocamos los artículos a la izquierda y los tags a la derecha */
+main {
+  display: flex;
+  /*justify-content: space-between;*/
+  flex-flow: row wrap;
+}
+
+/* El listado de articulos */
+#articles-container {
+  flex: 1; /* Con esto ocuparía toda la fila */
+  display: flex;
+  align-content: flex-start;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  margin: 0.25rem;
+  gap: 0.5rem; /* Separación entre cada artículo */
+  /*
+    Esto es importante para que flex-wrap funcione correctamente
+    Al añadir contenido interno empezaron los problemas de desbordamiento
+  */
+  min-width: 0;
+}
+
+/* Cada artículo está en uno */
+.article-card {
+  /*
+    Parece que no hace falta poner
+    width: 18.75rem; Unos 300px
+    porque con 0 shrink no encoge por debajo del mínimo
+  */
+  flex: 0 0 18.75rem; /* grow shrink basis */
+  height: 11rem; /* Para evitar que aumente en altura por el contenido */
+  /*
+    Oculta el contenido que se desborda
+    Necesario para que el contenedor no crezca
+  */
+  overflow: hidden;
+  padding: 0.25rem;
+  position: relative;
+  margin: 0.25rem;
+  /*
+    Para prevenir que otros elementos se pongan encima cuando se descuadra el diseño
+    Este problema surge con .a--disabled que pone el enlace desactivado por encima
+  */
+  z-index: 100;
+}
+
+/* Se recorta lo que sobre de la imagen */
+.article-card img {
+  float: left; /* Para que el texto la rodee */
+  height: 8rem;
+  width: 8rem;
+  object-fit: cover;
+  margin: 0 0.15rem 0 0;
+}
+
+/* Se posiciona sobre la imagen con float gracias al absolute */
+.article-card h3 {
+  position: absolute;
+  top: 0.3rem;
+  right: 0.1rem;
+  width: 12rem;
+  text-align: center;
+  overflow: hidden; /* Oculta el contenido que desborda */
+  text-overflow: ellipsis; /* Muestra puntos suspensivos (...) */
+  white-space: nowrap; /* Evita que el texto se divida en varias líneas */
+  padding: 0.1rem;
+  background-color: cornsilk;
+  border: solid 1px black;
+  transform: rotate(2deg); /* Gira el título 2 grados */
+  z-index: 1; /* Añadido: para asegurar que esté por encima de la imagen */
+}
+
+/* 
+  Confio en que el desvordamiento se controle com overflow: hidden;
+  que se usa para limitar el float.
+*/
+.article-card p {
+  margin-top: 2rem;
+  text-align: justify;
+  line-height: 1.15;
+  /*
+    Permite que las palabras largas se rompan. Pero no parece funcionar como esperaba
+    https://www.w3schools.com/cssref/css3_pr_word-break.php
+  */
+  word-break: break-word;
+}
+
+/* Posiciono el enlace en la esquina inferior derecha */
+.article-card .read-more {
+  position: absolute;
+  bottom: 0.25rem;
+  right: 0.25rem;
+  padding: 0.2rem 0.25rem;
+  background-color: #6b8e23;
+  color: #f5f5f5;
+  font-size: 0.9em;
+  text-decoration: none;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0,0,0,.1);
+}
+
+/* Estilos al botón de los artículos */
+.article-card .read-more:hover {
+  background-color: #5c4033; /* Color marrón, similar al usado en hover de otros elementos */
+}
+
+/*
+  Se aplica estilos al "article-tags" (div) que introduce el JavaScript "tags.js"
+  Este "div" contiene las etiquetas "span" que actuan como "tags" de los artículos/noticias
+  Se posiciona encima de la imagen cuando un artículo mostrando las tags del artículo en cuestión.
+  Se encuentran en las páginas "articulos.html y "noticias.html".
+*/
+.article-card .article-tags {
+  position: absolute;
+  /*top: 5.5rem;*/
+  bottom: 2.3rem;
+  left: 0rem;
+  padding: 0.15rem;
+  text-align: center;
+  background: rgb(255, 0, 0, .8);
+  width: 8rem;
+  overflow: hidden;
+}
+
+/* Aquí damos formato a las tag (span) ya mencionadas */
+.article-card .article-tags .tag {
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin: 0;
+}
+
+/* Es el aside a la derecha del main con el listado de todas las tags */
+.categories {
+  min-width: min-content;
+  max-width: 10rem;
+  padding: 0.25rem;
+}
+
+/*
+Ya está en otra hoja de estilos. Tengo que ordenarlo
+.categories ul {
+  list-style: none;
+  padding: 0;
+}
+*/
+.categories li {
+  margin-bottom: 0.5rem;
+}
+
+.categories h3 {
+  margin-bottom: 0.5rem;
+  font-size: 1.1em;
+  color: #333;
+}
+
+/*
+  Se muestra cuando no hay ningún artículo para el tag de "categories" pulsado.
+  Es decir, que ninguna de las tags de las clases "article-card" tienen la etiqueta
+  en cuestión.
+  También sucede cuando se carga el enlace de la página con parámetros de etiquetas.
+  Es decir, que el javascript funciona tanto con clics en botones (a) como con GET.
+*/
+#no-articles {
+  align-self: flex-start;
+  flex: 1;
+  text-align: center;
+  margin: 0 auto;
+  padding: 20px;
+  font-size: 1.2em;
+  color: #777;
+  background-color: #f5f5f5;
+  border-radius: 5px;
+  margin: 20px 0;
+}

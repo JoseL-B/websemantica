@@ -1,0 +1,116 @@
+/* CSS especifico de la página de contacto */
+
+main {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+}
+
+/*
+  He probado con min(100%, 50%), que compara dos valores y usa el más pequeño.
+  En teoría, cuando el contenedor es ancho: 50% es menor que 100%, así que usa 50%.
+  Cuando el contenedor es estrecho: 100% es menor que 50%, así que usa 100%.
+  He considerado también los márgenes width: min(100%, calc(50% - 1rem));
+  pero no ha funcionado, por lo que he optado por @media
+*/
+#formulario, #informacion {
+  width: 100%;
+  max-width: 600px;             
+  text-align: center;
+}
+
+@media screen and (min-width: 768px) {
+  #formulario, #informacion {
+    width: calc(50% - 1rem); /* En pantallas grandes ocupan la mitad */
+  }
+}
+
+#formulario > form {
+  margin: 1rem;
+  padding: 0.50rem;
+}
+
+#formulario > form fieldset {
+  padding: 0.25rem;
+}
+#formulario > form legend {
+  width: fit-content;
+  padding: 0 0.25rem;
+}
+
+/* Para que noo se pueda redimensionar el area de texto */
+#formulario > form textarea {
+  resize: none;
+}
+
+#formulario > form input[type=submit] {
+  display: block;
+  margin-left: auto; /* para posicionarlo a la derecha */  
+  text-align: center;            
+  width: 25%;
+  min-width: min-content; /* Para que se visualice el texto completo */
+}
+
+#formulario > form * {              
+  display: block;
+  text-align: justify;
+  margin: 0.25rem;
+  width: calc(100% - 1rem);
+  padding: 0.25rem;
+}
+
+#informacion h3 {
+  background-color: cornsilk;
+  border: solid 1px black;
+  padding: 0.25rem;
+}
+
+#informacion img {
+  width: 1rem;
+  min-width: 16px;
+  padding-right: 0.25rem;
+}
+
+#informacion ul {
+  display: inline-block;
+  list-style: none;
+  text-align: justify;
+  padding: 0;
+  margin: 0.25rem auto;
+  vertical-align: middle;
+}
+/*
+
+  Con esto centramos sin usar flexbox, pero es dificil de lidiar con
+  distintas resoluciones de pantalla y textos con varias líneas
+
+  #informacion li {
+    display: block;
+    height: 2rem;  Para poder centar los enlaces sin flexbox 
+    line-height: 2rem;
+  }
+*/
+
+/* Alternativa con Flexbox */
+#informacion li {
+  display: flex; /* Para usar flexbox por dificultad para centrar el texto como bloque */
+  align-items: center;
+  margin: 0.5rem 0.25rem;
+}
+
+#informacion li img {
+  vertical-align: middle;
+  margin-right: 0.25rem; /* Para separar del texto */
+  flex-shrink: 0; /* Que la imagen no encoja */
+}
+
+#informacion a {
+  max-width: 100%;
+  display: inline-block;
+  vertical-align: middle;
+  line-height: normal; /* Resetea la línea de altura para el texto del enlace */  
+}
+
+#relacionados {
+  margin-top: 2rem;
+}

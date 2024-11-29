@@ -1,0 +1,22 @@
+
+
+/* CSS especifico del index */
+
+/* Enlazar el css del carrusel */
+@import "carrusel.css";
+
+#main--bienvenida {
+  padding: 2rem;
+  margin: 1rem;
+}
+
+#main--bienvenida h2 {
+  text-align: center;
+  margin-bottom: 0.5rem;
+}
+
+#main--bienvenida p {
+  max-width: 800px; /* Limito el ancho para mejorar el aspecto */
+  margin: 0 auto;
+  text-align: justify;
+}

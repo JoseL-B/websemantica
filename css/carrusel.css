@@ -1,0 +1,115 @@
+
+/* CSS para el formato del escaparate de enlaces/promociones */
+
+#carousel-container {
+  width: 100%;
+  height: 20rem;
+  overflow: hidden;
+  position: relative;
+  background-color: brown;
+}
+
+/* Preparamos la animación */
+
+/*
+  Definición de la animación con el nombre "slideshow"
+
+  Esta animación mueve el elemento horizontalmente desde su posición original (0%)
+  hasta un punto que está a 75% de su ancho hacia la izquierda (100%). 
+  https://www.w3schools.com/cssref/atrule_keyframes.php
+
+  El bloque @keyframes puede ponerse debajo del animation (#carousel-container > div)
+  y seguiría funcionando.
+*/
+@keyframes slideshow { /* Se declara una nueva animación llamada "slideshow".*/
+  0% { /* Estado inicial de la animación */
+    transform: translateX(0); /* Al inicio de la animación, el elemento está en su posición original (no se ha movido).*/
+  }
+  100% { /* Estado final de la animación */
+    transform: translateX(-75%); /* Al final de la animación, el elemento se ha movido hacia la izquierda un 75% de su propio ancho.*/
+  }
+}
+
+/* Aplicación de la animación */
+
+#carousel-container > div {
+  display: flex;
+  width: 400%; /* 100% × número de slides */
+  height: 100%;
+  /*
+    Animación continua de un lado a otro cuando llega al final
+    https://www.w3schools.com/cssref/css3_pr_animation.php
+    
+    Lo que hace la animación en cada momento se especifica en el bloque @keyframes:
+
+    Parámetros:
+      Duración: 30s (30 segundos)
+      Iteración: infinite (se repite indefinidamente)
+      Dirección: alternate (alterna entre avanzar y retroceder)
+      Timing function: linear (velocidad constante)
+  */
+  animation: slideshow 30s infinite alternate linear;
+}
+
+/*
+  Pausa la animación cuando se pasa el cursor por encima
+  https://www.w3schools.com/cssref/css3_pr_animation-play-state.php
+*/
+#carousel-container > div:hover {
+  animation-play-state: paused;
+}
+
+.slide {
+  /* Configuramos el tipo de letra para que no se salga del recuadro */
+  font-family: Arial, sans-serif;
+  font-size: 1rem;
+  line-height: 1.5;
+  width: 25%;  /* 100% ÷ número de slides */
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+.slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block; /* Para eliminar posibles espacios */
+}
+
+/* Por semantica he tenido que reemplazar el p por h2 .slide p { */
+.slide h2 {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  padding: 0.5rem;
+  margin: 0;
+  font-size: 0.9rem;
+  text-align: center;
+  /* Para que sólo haya una línea: https://www.w3schools.com/cssref/pr_text_white-space.php */
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis; /* Para los "..." https://www.w3schools.com/cssref/css3_pr_text-overflow.php */
+  width: 100%;
+  box-sizing: border-box; /* Para que incluya el padding y evitar descuadres*/
+}
+
+.slide a {
+  display: block; /* Pare que ocupe toda la fila */
+  height: 100%;
+  background-color: aliceblue;
+  text-decoration: none;
+}
+
+/* Alternativa con retorno rápido al inicio
+@keyframes slideshow {
+  0% { transform: translateX(0); }
+  25% { transform: translateX(-25%); }
+  50% { transform: translateX(-50%); }
+  75% { transform: translateX(-75%); }
+  100% { transform: translateX(0); }
+}
+*/

@@ -1,0 +1,526 @@
+
+/* Importar fuentes de Google */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&family=Open+Sans:wght@400;700&display=swap');
+
+/* Enlazar hojas de estilo externas que se vayan a usar. En este caso para normalizar. */
+@import "https://unpkg.com/normalize.css@8.0.1/normalize.css";
+
+/*
+    CSS de las secciones principales
+    He decidido intentar prescindir de ids y clases en este apartado
+*/
+
+/* Aplicamos flex para posicionar los elementos de dentro del body */
+body {
+    font-family: 'Roboto', 'Open Sans', Verdana, Geneva, Tahoma, sans-serif;
+    display: flex;
+    flex-direction: column; /* En columnas */
+    min-height: 100vh; /* viewport height = 100% la altura de la ventana */
+    /*
+        Teniendo en cuenta el tamaño de pantalla de un móvil pequeño.
+        Da menos problemas de descuadre, pero dificulta su uso en dispositivos de pantallas menores.
+    */
+    min-width: 320px;
+    box-sizing: border-box;
+    background: #f5f5f5;
+    /*font-size: 62.5%;*/
+    font-size: 100%; /* Prefiero partir del tamaño definido */
+    margin: 0;
+    padding: 0;
+}
+
+/* Para que se apliquen a todos los leementos */
+body * {
+    /*border: 0px solid blue;*/ /* Regla para facilitar ver las cajas */
+    margin: 0;
+    padding: 0;
+}
+
+/*
+    Estilos del header principal
+    ----------------------------
+*/
+
+body > header {
+    /*
+        Fija el header en la parte superior
+        El elemento se comporta como relative hasta que alcanza el punto especificado en top,
+        y luego se comporta como fixed.
+        https://www.w3schools.com/howto/howto_css_sticky_element.asp
+    */
+    position: sticky;
+    top: 0;
+    left: 0;
+    width: 100%; /* Se precisa porque al aplicar fixed ya no ocupa todo el ancho */
+    padding:  0.25rem 0;
+    z-index: 1000; /* Asegura que el header esté por encima de otros elementos */
+    background: rgb(179, 157, 150);
+    text-align: center;
+    /* vertical-align: middle; No se puede poner aquí porque no lo heredan los hijos */
+}
+
+body > header > img {
+    display: inline-block;
+    width: 10%;
+    min-width: 3rem;
+    max-width: 8rem;
+    margin: 0 0.25rem 0;
+    vertical-align: middle;
+}
+
+body > header > section {
+    display: inline-block;
+    vertical-align: middle;
+    /* 100% del ancho del header
+        - 10% de la imagen
+        - 0.5 rem de los márgenes horizontales de la imagen */
+    width: calc(100% - 10% - 0.5rem);
+}
+
+body > header ul {
+    background: rgb(190, 171, 165);
+    /*
+        Para eliminar el estilo de la lista desordenada y los espaciados
+        Pero voy a dejar un 1% de margen
+    */
+    list-style: none;
+    margin: 0 0.25rem;
+
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    /*
+        Para separar los botones: Espacio entre filas y columnas en
+        flexbox, grid o multi-column layout
+        https://www.w3schools.com/cssref/css3_pr_gap.php
+    */
+    gap: 0.5rem;
+}
+
+body > header li {
+    margin: 0;
+    font-size: 1rem;
+}
+
+/* Apariencia de los botones de navegación */
+body > header li a {
+    display: block;
+    padding: 0.5rem 0.8rem;
+    background-color: #f0f0f0;
+    color: #222;
+    text-decoration: none;
+    border-radius: 4px;
+    /*
+        Para poder hacer transiciones suaves entre estados.
+        Se precisa la propiedad CSS y el tiempo en aplicarse.
+        Principalmente se aplica al hacer hover
+        https://www.w3schools.com/css/css3_transitions.asp
+
+        all: Se aplica a todas las propiedades
+        0.2s: 0.2 segundos tarda en ir aplicando los cambios
+        ease: Por defecto. Lento -> rapido -> Lento
+    */
+    transition: all 0.2s ease;
+    font-weight: 500;
+    border: 1px solid #ddd;
+}
+
+/* Estilo al pasar el puntero por encima */
+body > header li a:hover {
+    background-color: #5c4033;
+    color: white;
+    /*
+        Para desplazar en el eje "y" 2 píxeles al pasar el ratón por encima
+        https://www.w3schools.com/cssref/css3_pr_transform.php
+    */
+    transform: translateY(-2px);
+    /*
+        Aplica sombreado
+        https://www.w3schools.com/cssref/css3_pr_box-shadow.php
+
+        0: Desplazamiento horizontal de la sombra
+        2px: Desplazamiento vertical de la sombra
+        5px: Radio de desenfoque
+        rgba(0,0,0,0.2);: Color negro con trasparencia de 0.2 sobre 1
+    */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+/* Estilo para el enlace activo (después de hover) */
+body > header li a.active {
+    background-color: #6b8e23;
+    color: white;
+}
+
+/*
+    CSS para menu alternativo para pantallas pequeñas
+    -------------------------------------------------
+*/
+
+/* Oculta el checkbox */
+.menu-toggle {
+    display: none;
+}
+  
+/* Oculta el icono de hamburguesa por defecto */
+.menu-icon {
+    display: none;
+    cursor: pointer; /* Un dedo: https://www.w3schools.com/cssref/pr_class_cursor.php */
+    padding: 10px;
+    background: rgb(190, 171, 165);        
+    border-radius: 4px;
+}
+
+/*
+    Cuando la pantalla es menor de 500px mostrar el menu alternativo
+    https://www.w3schools.com/cssref/atrule_media.php
+*/
+@media screen and (max-width: 500px) {
+        
+    body > header {
+        position: static; /* Que el menú deje de ser sticky porque molesta en la pantalla */
+    }
+
+    .menu-icon {
+        display: block; /* Muestra el icono en pantallas pequeñas */
+    }
+
+    body > header nav {
+        display: none; /* Oculta el nav predeterminado */
+        /*
+            Parece que se pone para que conserve la anchura al visualizarlo de nuevo,
+            pero yo no veo la diferencia entre ponerlo y no hacerlo.
+        */
+        width: 100%;
+    }
+
+    /*
+        Muestra el nav cuando el checkbox está marcado
+
+        ~: Selector de hermanos generales. https://www.w3schools.com/cssref/sel_gen_sibling.php
+        Seleccionar el elemento nav que es un hermano general, comparte el mismo padre,
+        del elemento .menu-toggle:checked.
+        (Hay dos menús con el mismo padre: El de pantallas pequeñas y el de grandes)
+    */
+    .menu-toggle:checked ~ nav {
+        display: block;
+    }
+
+    /*
+        Muestra los botones en vertical
+        Supongo que no tiene efecto visual alguno
+        por tener el wrap y el tamaño de la ventana/pantalla
+    */
+    body > header nav ul {
+        flex-direction: column;
+    }
+
+    body > header nav li {
+        width: 100%;
+        text-align: center;
+    }
+}
+
+
+
+/*
+    Estilos del main principal
+    --------------------------
+*/
+
+body > main {
+    /*
+        Crea un margen superior igual a la altura del header. No se precisa con esta configuración
+        margin-top: 10vh;
+        min-height: calc(100vh);
+    */
+    background: #f5f5f5;
+    /*
+        flex: 1; toma el espacio restante
+        ------------------------
+        Equivale a flex: 1 1 0
+        flex-grow: 1 → Puede crecer
+        flex-shrink: 1 → Puede encogerse
+        flex-basis: 0 → Tamaño inicial
+
+        Como solo el main tiene flex: 1 y los otros elementos no tienen flex-grow,
+        el main tomará todo el espacio disponible entre el header y el footer.
+    */
+    flex: 1;
+}
+
+/* 
+    Estilos del footer principal
+    ----------------------------
+
+    Pruebo con un grid
+    No profundizaré porque no forma parte del temario.
+*/
+body > footer {
+    /*
+        Empuja el footer al fondo.
+        En un contenedor flex, auto en los márgenes absorbe todo el espacio disponible en esa dirección.
+    */
+    margin-top: auto;
+    background: rgb(179, 157, 150);
+    /*min-height: 10vh;*/
+
+    display: grid;
+    /* auto-fit hace que las columnas se ajusten automáticamente */
+    grid-template-columns: minmax(min-content, 75%) minmax(min-content, 1fr);
+    /* auto para la segunda fila que contiene el texto */
+    grid-template-rows: 1fr auto;
+
+    padding: 0.25rem 0;
+    gap: 0.25rem;
+}
+
+#footer--anuncio {
+    /* Pruebo usando grid */
+    grid-column: 1;
+    grid-row: 1;
+    min-width: min-content; /* Asegura un ancho mínimo basado en el contenido */
+
+    /* Hacer que todos los 'a' compartan la misma celda */
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center; /* Centra horizontalmente */
+    align-items: center; /* Centra verticalmente */
+    gap: 0.25rem;
+    background: rgb(190, 171, 165);
+    box-shadow: 0 0 10px rgba(0,0,0,.1);
+}
+
+#footer--anuncio img {
+    height: 5rem;
+    background: #b8b2b2;
+    /*
+        object-fit se puede utilizar en elementos reemplazados
+        como <img>, <video> o <object>.
+        Se requieren dimensiones definidas.
+        Mantiene la relación de aspecto.
+        Cubre todo el contenedor y recorta el exceso del eje en el que sobra.
+        Por defecto la imagen se centra (object-position para cambiarlo).
+    */
+    object-fit: cover;
+  }
+
+body > footer > p {
+    grid-column: 1;
+    grid-row: 2;
+    margin: 0;
+    text-align: center;
+}
+
+#footer--badge {
+    grid-column: 2;
+    grid-row: 1 / span 2;
+    min-width: min-content;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: row wrap;
+    gap: 0.25rem;
+}
+
+#footer--badge img {
+    height: 2.5rem;
+    background: #b8b2b2;
+    object-fit: cover;
+}
+
+
+/*
+    Formateando el contenido
+    ------------------------
+*/
+
+/* Aunque se toman los valores del body, lo personalizo */
+#site-title {
+    font-family: 'Roboto', 'Open Sans', sans-serif;
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #333;
+    text-align: center;
+    font-style: italic;
+}
+
+h1, h2, h3 {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 700;
+  }
+
+p {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 400;
+    line-height: 1.6; /* La altura de la línea será 1.1 veces el tamaño de la fuente del elemento. */
+}
+
+h2 {
+    padding: 1rem 0;
+}
+
+/* Formato del enlace */
+main a {
+    color: #0066cc;
+    text-decoration: underline; /* Mantiene el subrayado aunque no se precisa realmente ponerlo*/
+}
+
+/*
+    Focus se aplica cuando el a recive el foco (Teclado o click del ratón)
+    El orden de las pseudo-clases es:
+    a:link
+    a:visited
+    a:hover
+    a:focus
+    a:active
+*/
+/* Formato del enlace al pasar por encima o tomar el foco */
+main a:hover, main a:focus {
+    color: #004080;
+    text-decoration-thickness: 2px; /* Hace el subrayado más grueso */
+}
+
+main a:visited {
+    color: #551A8B;
+}
+
+/*
+    Efecto sticker a aplicar a varios elementos
+    -------------------------------------------
+*/
+.sticker--verde, #articles-container > .article-card {
+    border-radius: 1px; /* Redondea las esquinas sin crear borde */
+    background-color: #B2E0D4;
+    box-shadow: 1px 2px 10px rgba(0,0,0,0.2);
+}
+
+.sticker--marron {
+    background: #dbcece;
+    padding: 0.5rem;
+    border-radius: 5px;
+    margin: 1rem 0.25rem;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+
+/* Estilo general para los enlaces desactivados (Botón de navegación, tags,...) */
+.a--disabled {
+    color: gray; /* Se procesa en otro lugar, pero lo dejo de reserva */
+    pointer-events: none; /* Desactiva los eventos del ratón */
+    font-weight: bold;
+    cursor: default;
+    opacity: 0.5; /* Para indicar que está desactivado */
+    border-color: gray;
+    text-decoration: none; /* Elimina el subrayado en caso de que lo haya*/
+    /*
+        No tengo muy claro el motivo, pero al desactivar el enlace se puede posicionar por
+        encima de otros elementos.
+        z-index: -1; No resuelve el problema. Así que pongo z-index : 100 en article-card.
+    */
+}
+
+/*
+    Estilos para el contenido y tags de los artículos y noticias
+    Queda pendiente mejorar la organización, ya que están dispersos entre:
+    main.css, listado.css y article.css
+*/
+
+.articulo-tags .tag, .categories a {
+    display: inline-block;
+    padding: 0.3rem 0.8rem;
+    background-color: #6b8e23;
+    color: white;
+    text-decoration: none;
+    border-radius: 20px;
+    font-size: 0.9em;
+    /*
+        Transición de 0.3s al cambiar el background-color
+        y 0.2s en la propiedad transform.
+    */
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.articulo-tags .tag:hover, .categories a:hover {
+    background-color: #5c4033;
+    transform: translateY(-2px);
+}
+
+.articulo-tags ul, .categories ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+/* Media query para pantallas pequeñas o cuando se reduce el tamaño de la ventana a 768px*/
+@media screen and (max-width: 768px) { /* Puedes ajustar este valor según necesites */
+
+    body > footer {
+        grid-template-columns: 1fr; /* Una sola columna en lugar de las 2 por defecto */
+        grid-template-rows: 1fr auto auto; /* Tres filas: banner, badges y créditos */
+    }
+    
+    #footer--anuncio {
+        grid-row: 1; /* El banner primero */
+    }
+
+    #footer--badge {
+        grid-column: 1; /* Ahora ocupa la primera (y única) columna */
+        grid-row: 2; /* Se coloca en la segunda fila */
+    }
+
+    body > footer > p {
+        grid-row: 3; /* Créditos al final */
+    }
+}
+
+/*
+    CSS para establecer tamaños mínimos en diseño responsive
+    Obtenidas con IA de fuentes como https://www.w3.org/TR/css-flexbox-1/
+    No he incluido estas reglas pero me parecía apropiado dejarlas aquí.
+*/
+
+/*
+section {
+    min-width: 300px;
+    max-width: 1200px;
+}
+
+form {
+    min-width: 280px;
+    max-width: 600px;
+}
+
+input, textarea {
+    min-width: 250px;
+    max-width: 100%;
+}
+*/
+
+
+/* Móvil */
+/*
+@media (max-width: 480px) {
+    section {
+        min-width: 280px;
+    }
+}
+*/
+
+/* Tablet */
+/*
+@media (min-width: 481px) and (max-width: 768px) {
+    section {
+      min-width: 460px;
+    }
+}
+*/
+
+/* Desktop */
+/*
+@media (min-width: 769px) {
+    section {
+        min-width: 600px;
+    }
+}
+*/
