@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="utf-8">
+        <meta name="description"
+            content="Artículos">
+        <meta name="keywords"
+            content="experiencia, opinión, artículo, noticia">
+        <title>Listado de artículos</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">        
+        <link rel="stylesheet" href="css/main.css">
+        <link rel="stylesheet" href="css/listado.css">
+        <link rel="icon" type="image/x-icon" href="img/favicon.ico">
+    </head>
+    <body>
+        <header>
+            <!-- Imagen NO generada con https://designer.microsoft.com/image-creator -->
+            <img src="img/logo.jpg" alt="logo"><!--
+              Al posicionar como inline-block los elementos dentro del header (no es la mejor opción),
+              los espacios cuentan y alteran el resultado. Por eso he añadido este comentario.
+             --><section>
+              <h1 id="site-title">Mis artículos</h1>
+              <input type="checkbox" id="menu-toggle" class="menu-toggle">
+              <label for="menu-toggle" class="menu-icon">&#9776;</label>   
+              <nav>
+                <ul>
+                  <li><a href="index.html">Presentación</a></li>
+                  <li><a href="#" class="a--disabled">Artículos</a></li>
+                  <li><a href="noticias.html">Noticias</a></li>
+                  <li><a href="contacto.html">Contacto</a></li>
+                </ul>              
+              </nav>
+            </section>
+        </header>
+        <!-- He considerado mejor usar el main aquí en lugar de un section y dentro el main -->
+        <main>
+          <section id="articles-container">
+            <!-- Pongo el h2 para conservar la semantica y la estructura, que no de errores, pero lo oculto -->
+            <h2 style="display: none;">Listado de artículos</h2>
+            <!-- Por defecto esta oculto y se visualiza con Javascript cuando no aparece ningún artículo -->
+            <p id="no-articles" style="display: none;">No hay artículos en esta categoría</p>
+
+            <!--
+              Artículos
+              Fotos de https://www.pexels.com/es-es/
+            -->
+            
+            <article class="article-card" data-tags="guias,tecnologia,opinion">              
+              <header><h3>Filtros de pantalla</h3></header>
+              <img src="img/pexels-vasilis-karkalas-155349971-11558775.jpg" alt="Filtros de pantalla">
+              <p>Expongo mi experiencia con diversos sistemas de filtrado de la luz del monitor en sistemas Windows y GNU Linux, e indico el proceso de instalación de algunos de ellos en un sistema con Ubuntu/Linux Mint.</p>
+              <footer><a href="pages/articulo-9.html" class="read-more">Leer más...</a></footer>
+            </article>
+            
+            <article class="article-card" data-tags="guias,tecnologia">              
+              <header><h3>Envío de formulario a un webhook</h3></header>
+              <img src="img/pexels-kindelmedia-8566524-optimizada.jpg" alt="UNICO 5G Redes Activas 2024">              
+              <p>Sin tener muchos conocimientos informáticos ni un servidor propio, además de la opción de delegar el envío al gestor de correo electrónico de quien lo cumplimenta, puedes crear formularios fácilmente que envíen los datos a servicios de automatización de procesos como Zapier, IFTTT o similares.</p>
+              <footer><a href="pages/articulo-8.html" class="read-more">Leer más...</a></footer>
+            </article>
+
+            <article class="article-card" data-tags="guias,tecnologia,opinion">              
+              <header><h3>Instalación de router neutro</h3></header>
+              <img src="img/pexels-pixabay-159304-optimizada.jpg" alt="Router">
+              <p>Son varios los motivos por los que puedes querer reemplazar el router que te instala la operadora de comunicaciones por uno de tu propiedad que en el caso de la fibra óptica, la ONT es donde termina…</p>
+              <footer><a href="pages/articulo-7.html" class="read-more">Leer más...</a></footer>
+            </article>
+
+            <article class="article-card" data-tags="opinion">              
+              <header><h3>¿Qué fue primero, el huevo o la gallina?</h3></header>
+              <img src="img/pexels-nietjuh-11308355-optimizada.jpg" alt="Huevos con gallina">
+              <p>Este clásico dilema sobre el origen de las cosas tiene fácil respuesta para todos aquellos que saben de dónde venimos...</p>
+              <footer><a href="pages/articulo-6.html" class="read-more">Leer más...</a></footer>
+            </article>
+
+            <article class="article-card" data-tags="tecnologia,opinion">          
+              <header><h3>Android en el ordenador</h3></header>
+              <img src="img/pexels-pixabay-159394-optimizada.jpg" alt="Ordenador con Android">
+              <p>Búsqueda de formas sencillas, económicas y que requieran pocos recursos para poder ejecutar Apps en el ordenador.</p>
+              <footer><a href="pages/articulo-5.html" class="read-more">Leer más...</a></footer>
+            </article>
+
+            <article class="article-card" data-tags="guias,tecnologia,opinion">
+              <header><h3>2FA desde el ordenador</h3></header>
+              <img src="img/pexels-pixabay-60504-optimizada.jpg" alt="Seguridad">
+              <p>Expongo el uso de KeePass, entre otros programas y dispositivos USB que pueden ayudarnos a prescindir del famoso Google Autenticator y de la verificación por SMS en algunos casos.</p>
+              <footer><a href="pages/articulo-4.html" class="read-more">Leer más...</a></footer>
+            </article>
+
+            <article class="article-card" data-tags="guias,tecnologia">              
+              <header><h3>Instalación de la suite ofimática</h3></header>
+              <img src="img/libreoffice.jpeg" alt="Imagen de LibreOffice">
+              <p>Además de LibreOffice, en ocasiones puede que se precise del uso de una suite ofimática de Microsoft por temas de compatibilidad a la hora de trabajar con algunos documentos.</p>
+              <footer><a href="pages/articulo-3.html" class="read-more">Leer más...</a></footer>
+            </article>
+
+            <article class="article-card" data-tags="guias,tecnologia,opinion">
+              <header><h3>Instalación de Linux Mint 22</h3></header>
+              <img src="img/LinuxMint22-Wilma-English-optimizada.png" alt="Escritorio de Linux Mint">
+              <p>Aunque en la página de los desarrolladores podemos encontrar una guía detallada, he creído conveniente crear una explicando todo el proceso de instalación y configuración con las aplicaciones que considero que me son imprescindibles.</p>
+              <footer><a href="pages/articulo-2.html" class="read-more">Leer más...</a></footer>
+            </article>
+
+            <article class="article-card" data-tags="guias,opinion">              
+              <header><h3>Utilidades para facilitar la formación a distancia</h3></header>
+              <img src="img/pexels-olia-danilevich-4974914-optimizada.jpg" alt="Estudiante">
+              <p>Expongo un listado de utilidades que uso para facilitarme la realización de la formación en Birt LH. El realizar un FP a distancia implica una serie de retos que difieren de la formación presencial, más si surgen imprevistos en el proceso.</p>
+              <footer><a href="pages/articulo-1.html" class="read-more">Leer más...</a></footer>
+            </article>
+          </section>
+          
+          <!-- Parece que en este caso aside seria semanticamente más correcto que section -->
+          <aside class="categories sticker--marron">
+            <h3>Categorías</h3>
+            <nav>
+              <ul>
+                <li><a href="#" data-filter="todos">Todos</a></li>
+                <li><a href="#" data-filter="guias">Guías</a></li>
+                <li><a href="#" data-filter="noticias">Noticias</a></li>
+                <li><a href="#" data-filter="opinion">Opinión</a></li>
+                <li><a href="#" data-filter="tecnologia">Tecnología</a></li>                
+              </ul>
+            </nav>
+          </aside>
+        </main>
+        <footer>
+          <aside id="footer--anuncio">
+            <a href="https://signstop5g.eu/es" target="_blank"><img src="img/logo_horizontal_es.jpg" alt="STOP-5G"></a>
+            <a href="https://bioinitiative.org" target="_blank"><img src="img/bio-init-logo-large-layered-blue.gif" alt="Bioinitiative"></a>
+            <a href="https://www.euskadi.eus/contenidos/informacion/salud_amb_campos_electrom/eu_def/adjuntos/Resolucion_1815_(Consejo_de_Europa).pdf" target="_blank"><img src="img/resolucion1815.jpg" alt="Resolución 1815"></a>
+          </aside>
+          <p>This work is licensed under <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/?ref=chooser-v1" target="_blank" rel="license noopener noreferrer" style="display:inline-block;">CC BY-NC-ND 4.0<img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1" alt=""><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/by.svg?ref=chooser-v1" alt=""><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/nc.svg?ref=chooser-v1" alt=""><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/nd.svg?ref=chooser-v1" alt=""></a></p>  
+          <!-- Contenedor derecho para badges -->          
+          <aside id="footer--badge">              
+              <a href="http://www.w3.org/html/logo/">
+                <img src="https://www.w3.org/html/logo/badge/html5-badge-h-css3-device-graphics-multimedia-semantics-storage.png" width="293" height="64" alt="HTML5 Powered with CSS3 / Styling, Device Access, Graphics, 3D &amp; Effects, Multimedia, Semantics, and Offline &amp; Storage" title="HTML5 Powered with CSS3 / Styling, Device Access, Graphics, 3D &amp; Effects, Multimedia, Semantics, and Offline &amp; Storage">
+              </a>
+              <img src="img/creative-commons-badge.webp" alt="Creative-Commons">
+          </aside>                  
+        </footer>
+        <!--
+          Script necesario para filtrar los tags de los artículos y noticias
+          Se coloca al final de la página para asegurarnos de que el DOM está cargado,
+          término que aun no tengo claro del todo a pesar de haber investigado un poco.
+        -->
+        <script src="js/tags.js"></script>
+    </body>
+</html>

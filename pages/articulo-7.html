@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="utf-8">
+        <meta name="description"
+            content="Un artículo">
+        <meta name="keywords"
+            content="artículo">
+        <title>Instalación de router neutro</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="../css/main.css">
+        <link rel="stylesheet" href="../css/article.css">
+        <link rel="icon" type="image/x-icon" href="img/favicon.ico">
+    </head>
+    <body>
+        <header>
+            <!-- Imagen NO generada con https://designer.microsoft.com/image-creator -->
+            <img src="../img/logo.jpg" alt="logo"><!--
+              Al posicionar como inline-block los elementos dentro del header (no es la mejor opción),
+              los espacios cuentan y alteran el resultado. Por eso he añadido este comentario.
+             --><section>
+                <h1 id="site-title">Artículo</h1>
+                <input type="checkbox" id="menu-toggle" class="menu-toggle">
+                <label for="menu-toggle" class="menu-icon">&#9776;</label>
+                <nav>
+                    <ul>
+                        <li><a href="../index.html">Presentación</a></li>
+                        <li><a href="../articulos.html">Artículos</a></li>
+                        <li><a href="../noticias.html">Noticias</a></li>
+                        <li><a href="../contacto.html">Contacto</a></li>
+                    </ul>              
+                </nav>
+            </section>
+        </header>
+        <!-- He considerado mejor usar el main aquí en lugar de un section y dentro el main -->
+        <main>
+            <article>
+                <header><h2 id="titulo">Instalación de router neutro</h2></header>    
+                <!-- Considero apropiado un div porque la alternativa semantica section requiere de un encabezado -->
+                <div id="contenido" class="sticker--verde">
+                    <img src="../img/pexels-pixabay-159304-optimizada.jpg" alt="Imagen principal del artículo">      
+                    <p>Son varios los motivos por los que puedes querer reemplazar el router que te instala la
+                        operadora de comunicaciones por uno de tu propiedad que en el caso de la fibra óptica,
+                        la ONT es donde termina…</p>                    
+                </div>
+
+                <footer class="articulo-tags sticker--marron">
+                    <h3>Categorías del artículo</h3>
+                    <nav>
+                        <ul class="tags-container">
+                            <li><a href="../articulos.html?tag=guias" class="tag">Guías</a></li>
+                            <li><a href="../articulos.html?tag=opinion" class="tag">Opinión</a></li>
+                            <li><a href="../articulos.html?tag=tecnologia" class="tag">Tecnología</a></li>
+                        </ul>
+                    </nav>
+                </footer>
+                
+
+            </article>
+    
+            
+        </main>
+        <footer>
+            <aside id="footer--anuncio">
+              <a href="https://signstop5g.eu/es" target="_blank"><img src="../img/logo_horizontal_es.jpg" alt="STOP-5G"></a>
+              <a href="https://bioinitiative.org" target="_blank"><img src="../img/bio-init-logo-large-layered-blue.gif" alt="Bioinitiative"></a>
+              <a href="https://www.euskadi.eus/contenidos/informacion/salud_amb_campos_electrom/eu_def/adjuntos/Resolucion_1815_(Consejo_de_Europa).pdf" target="_blank"><img src="../img/resolucion1815.jpg" alt="Resolución 1815"></a>
+            </aside>
+            <p>This work is licensed under <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/?ref=chooser-v1" target="_blank" rel="license noopener noreferrer" style="display:inline-block;">CC BY-NC-ND 4.0<img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1" alt=""><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/by.svg?ref=chooser-v1" alt=""><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/nc.svg?ref=chooser-v1" alt=""><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/nd.svg?ref=chooser-v1" alt=""></a></p>  
+            <!-- Contenedor derecho para badges -->          
+            <aside id="footer--badge">              
+                <a href="http://www.w3.org/html/logo/">
+                  <img src="https://www.w3.org/html/logo/badge/html5-badge-h-css3-device-graphics-multimedia-semantics-storage.png" width="293" height="64" alt="HTML5 Powered with CSS3 / Styling, Device Access, Graphics, 3D &amp; Effects, Multimedia, Semantics, and Offline &amp; Storage" title="HTML5 Powered with CSS3 / Styling, Device Access, Graphics, 3D &amp; Effects, Multimedia, Semantics, and Offline &amp; Storage">
+                </a>
+                <img src="../img/creative-commons-badge.webp" alt="Creative-Commons">
+            </aside>                  
+          </footer>
+        <!--
+          Script necesario para que el titulo no tape el texto
+          ver más información en el código del script          
+        -->
+        <script src="../js/float-title.js"></script>
+    </body>
+</html>

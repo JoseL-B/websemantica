@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="utf-8">
+        <meta name="description"
+            content="Sección de noticias">
+        <meta name="keywords"
+            content="experiencia, opinión, artículo, noticia">
+        <title>Sección de noticias</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="css/main.css">
+        <link rel="stylesheet" href="css/listado.css">
+        <link rel="icon" type="image/x-icon" href="img/favicon.ico">
+    </head>
+    <body>
+        <header>
+            <img src="img/logo.jpg" alt="logo"><!--
+         --><section>
+                <h1 id="site-title">Sección de noticias</h1>
+                <input type="checkbox" id="menu-toggle" class="menu-toggle">
+                <label for="menu-toggle" class="menu-icon">&#9776;</label>
+                <nav>
+                    <ul>
+                      <li><a href="index.html">Presentación</a></li>
+                      <li><a href="articulos.html">Artículos</a></li>
+                      <li><a href="#" class="a--disabled">Noticias</a></li>
+                      <li><a href="contacto.html">Contacto</a></li>
+                    </ul>
+                </nav>
+            </section>
+        </header>
+        <!-- He considerado mejor usar el main aquí en lugar de un section y dentro el main -->
+        <main>
+            <section id="articles-container">
+                <!-- Pongo el h2 para conservar la semantica y la estructura, que no de errores, pero lo oculto -->
+                <h2 style="display: none;">Listado de noticias</h2>
+                <!-- Por defecto esta oculto y se visualiza con Javascript cuando no aparece ningún artículo -->
+                <p id="no-articles" style="display: none;">No hay noticias en esta categoría</p>
+                <!--
+                  Artículos
+                    Fotos de https://www.pexels.com/es-es/
+                -->
+                <article class="article-card" data-tags="tecnologia">
+                    <header><h3>Grand Canyon · Free Stock Photo</h3></header>
+                    <img src="img/pexels-vasilis-karkalas-155349971-11558775.jpg" alt="Grand Canyon">
+                    <p>Una de tantas páginas para poder descargar imágenes y utilizarlas en tus proyectos.</p>
+                    <!-- He renombrado el enlace de acuerdo a las instrucciones de la tarea: "seguir leyendo" -->
+                    <footer><a href="https://www.pexels.com/es-es/@vasilis-karkalas-155349971/"
+                                target="_blank" class="read-more">seguir leyendo</a></footer>
+                </article>
+                
+                <article class="article-card" data-tags="noticias,politica,economia,tecnologia">
+                    <header><h3>Convocatoria UNICO 5G Redes Activas 2024 para el despliegue de esta tecnología en Zonas Rurales</h3></header>
+                    <img src="img/network-6926764_640-optimizada.jpg" alt="UNICO 5G Redes Activas 2024">
+                    <p>La convocatoria UNICO 5G Redes Activas 2024 es una iniciativa del Ministerio para la Transformación Digital y de la Función Pública,
+                        impulsada a través de la Secretaría de Estado de Telecomunicaciones e Infraestructuras Digitales. Su objetivo es reducir la brecha digital
+                        y llevar conectividad de alta velocidad a todos los rincones del país.</p>
+                    <footer><a href="https://planderecuperacion.gob.es/noticias/conoce-convocatoria-UNICO-5G-Redes-Activas-2024-despliegue-tecnologia-zonas-rurales-prtr"
+                                target="_blank" class="read-more">seguir leyendo</a></footer>
+                </article>
+
+                <article class="article-card" data-tags="noticias,politica,sociedad,salud,medio-ambiente,tecnologia">
+                    <header><h3>Iniciativa Ciudadana Europea por una moratoria al 5G</h3></header>
+                    <img src="img/logo_horizontal_es.jpg" alt="STOP 5G">
+                    <p>Ecologistas en Acción y más de 50 organizaciones de personas afectadas por enfermedades crónicas ambientales y/o de afectación al sistema
+                        nervioso central e inmunológico, apoyan el lanzamiento de una recogida de firmas para una Iniciativa Ciudadana Europea (ICE) bajo el lema
+                        ‘STOP 5G. Si te conectas, ¡protégete!’.</p>
+                    <footer><a href="https://www.ecologistasenaccion.org/194962/iniciativa-ciudadana-europea-por-una-moratoria-al-5g/"
+                                target="_blank" class="read-more">seguir leyendo</a></footer>
+                </article>
+
+                <article class="article-card" data-tags="noticia,sociedad,salud">
+                    <header><h3>CONFESQ analiza la vulneración de derechos humanos en personas con sensibilidad química múltiple y electrosensibilidad</h3></header>
+                    <img src="img/cropped-LOGO-NUEVO-CONFESQ.png" alt="CONFESQ">
+                    <p>La Coalición Nacional de Fibromialgia, Síndrome de Fatiga Crónica, Sensibilidad Química Múltiple y Electrohipersensibilidad (CONFESQ),
+                        entidad perteneciente a COCEMFE, ha celebrado la Jornada ‘Sensibilidad Química Múltiple, Electrosensibilidad y discapacidad orgánica:
+                        análisis desde un enfoque de derechos humanos’, en la que presentaron dos informes que analizan las barreras que afrontan estas patologías
+                        desde el ámbito social y jurídico.</p>
+                    <footer><a href="https://confesq.org/?p=29358"
+                        target="_blank" class="read-more">seguir leyendo</a></footer>
+                </article>
+
+                <article class="article-card" data-tags="noticias,tecnologia,salud">
+                    <header><h3>Informe Bioinitiative actualizado a 2022</h3></header>
+                    <img src="img/bio-init-logo-large-layered-blue.gif" alt="Bioinitiative">
+                    <p>Se han actualizado a fecha del 2022 los resúmenes de investigación para estudios genéticos, neurológicos y de radicales libres (daño oxidativo).
+                        Los nuevos gráficos para cada una de las actualizaciones de 2022 detallan el número de estudios que muestran "efecto frente a ningún efecto".</p>
+                    <footer><a href="https://ec.europa.eu/health/scientific_committees/scheer/docs/emf2022/Bioinitiative_Research_summaries.pdf"
+                                target="_blank" class="read-more">seguir leyendo</a></footer>
+                </article>
+
+                <article class="article-card" data-tags="noticias,salud,tecnologia,medio-ambiente">
+                    <header><h3>La Asamblea Parlamentaria del Consejo de Europa aprueba la Resolución "Peligros potenciales de los campos electromagnéticos y su efecto en el medio ambiente"</h3></header>
+                    <img src="img/resolucion1815.jpg" alt="Resolución 1815">
+                    <p>Ha sido aprobada la resolución "Peligros potenciales de los campos electromagnéticos y su efecto en el medio ambiente" en la Asamblea Parlamentaria del
+                        Consejo de Europa" en su sesión de 27 de mayo de 2011.</p>
+                    <footer><a href="https://www.avaate.org/?La-Asamblea-Parlamentaria-del-Consejo-de-Europa-aprueba-la-Resolucion-Peligros"
+                                target="_blank" class="read-more">seguir leyendo</a></footer>
+                </article>
+
+                <article class="article-card" data-tags="noticias,tecnologia">
+                    <header><h3>LibreOffice 24.8 ha llegado</h3></header>
+                    <img src="img/libreoffice.jpeg" alt="Imagen de LibreOffice">
+                    <p>La nueva versión de LibreOffice ya ha sido liberada con una gran cantidad de nuevas funciones y mejoras de interoperabilidad...</p>
+                    <footer><a href="https://es.blog.documentfoundation.org/libreoffice-24-8-ha-llegado-para-transformar-su-experiencia"
+                                target="_blank" class="read-more">seguir leyendo</a></footer>
+                </article>
+
+                <article class="article-card" data-tags="noticias,tecnologia">
+                    <header><h3>¡Linux Mint 22 “Wilma” lanzado!</h3></header>
+                    <img src="img/LinuxMint22-Wilma-English-optimizada.png" alt="Escritorio de Linux Mint">
+                    <p>Linux Mint 22 es una versión de soporte a largo plazo que será compatible hasta 2029. Viene con software actualizado y trae mejoras y muchas características
+                        nuevas para hacer que su escritorio sea aún más cómodo de usar.</p>
+                    <footer><a href="https://blog.linuxmint.com/?p=4731"
+                            target="_blank" class="read-more">seguir leyendo</a></footer>
+                </article>
+
+                <article class="article-card" data-tags="noticias,cultura">
+                    <header><h3>El nuevo curso en BirtLH 2024-2025!</h3></header>
+                    <img src="img/birtlh-logo.jpeg" alt="Logo de BirtLH">
+                    <p>El nuevo curso escolar empieza en septiembre. En BirtLH los primeros módulos empiezan...</p>
+                    <footer><a href="https://www.birt.eus/noticias/arrancamos-el-nuevo-curso-2024-2025/"
+                                target="_blank" class="read-more">seguir leyendo</a></footer>
+                </article>
+            </section>
+          
+            <!-- Parece que en este caso aside seria semanticamente más correcto que section -->
+            <aside class="categories sticker--marron">
+                <h3>Categorías</h3>
+                <nav>
+                  <ul>
+                    <li><a href="#" data-filter="todos">Todos</a></li>
+                    <li><a href="#" data-filter="guias">Guías</a></li>
+                    <li><a href="#" data-filter="noticias">Noticias</a></li>
+                    <li><a href="#" data-filter="opinion">Opinión</a></li>
+                    <li><a href="#" data-filter="politica">Política</a></li>
+                    <li><a href="#" data-filter="economia">Economía</a></li>
+                    <li><a href="#" data-filter="sociedad">Sociedad</a></li>
+                    <li><a href="#" data-filter="cultura">Cultura</a></li>
+                    <li><a href="#" data-filter="deportes">Deportes</a></li>
+                    <li><a href="#" data-filter="ciencia">Ciencia</a></li>
+                    <li><a href="#" data-filter="tecnologia">Tecnología</a></li>
+                    <li><a href="#" data-filter="salud">Salud</a></li>
+                    <li><a href="#" data-filter="educacion">educacion</a></li>
+                    <li><a href="#" data-filter="medio-ambiente">Medio ambiente</a></li>
+                  </ul>
+                </nav>
+            </aside>
+        </main>
+        <!-- Inicio del pie de página -->
+        <footer>
+            <!-- Sección que corresponde a la nota informativa o banner -->
+            <aside id="footer--anuncio">
+                <a href="https://signstop5g.eu/es" target="_blank">
+                    <img src="img/logo_horizontal_es.jpg" alt="STOP-5G">
+                </a>
+                <a href="https://bioinitiative.org" target="_blank">
+                    <img src="img/bio-init-logo-large-layered-blue.gif" alt="Bioinitiative">
+                </a>
+                <a href="https://www.euskadi.eus/contenidos/informacion/salud_amb_campos_electrom/eu_def/adjuntos/Resolucion_1815_(Consejo_de_Europa).pdf" target="_blank">
+                    <img src="img/resolucion1815.jpg" alt="Resolución 1815">
+                </a>
+            </aside>
+            <!-- Autor y licencia -->
+            <p>This work is licensed under 
+                <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/?ref=chooser-v1" target="_blank" rel="license noopener noreferrer" 
+                    style="display:inline-block;">CC BY-NC-ND 4.0
+                    <img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" 
+                        src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1" alt="">
+                    <img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" 
+                        src="https://mirrors.creativecommons.org/presskit/icons/by.svg?ref=chooser-v1" alt="">
+                    <img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" 
+                        src="https://mirrors.creativecommons.org/presskit/icons/nc.svg?ref=chooser-v1" alt="">
+                    <img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" 
+                        src="https://mirrors.creativecommons.org/presskit/icons/nd.svg?ref=chooser-v1" alt="">
+                </a>
+            </p>
+            <!-- Contenedor derecho para badges relacionados con el sitio -->
+            <aside id="footer--badge">
+                <a href="http://www.w3.org/html/logo/">
+                <img src="https://www.w3.org/html/logo/badge/html5-badge-h-css3-device-graphics-multimedia-semantics-storage.png" width="293" height="64" 
+                    alt="HTML5 Powered with CSS3 / Styling, Device Access, Graphics, 3D &amp; Effects, Multimedia, Semantics, and Offline &amp; Storage" 
+                    title="HTML5 Powered with CSS3 / Styling, Device Access, Graphics, 3D &amp; Effects, Multimedia, Semantics, and Offline &amp; Storage">
+                </a>
+                <img src="img/creative-commons-badge.webp" alt="Creative-Commons">
+            </aside>
+        </footer>
+        <!--
+            Script necesario para filtrar los tags de los artículos y noticias
+            Se coloca al final de la página para asegurarnos de que el DOM está cargado,
+            término que aun no tengo claro del todo a pesar de haber investigado un poco.
+        -->
+        <script src="js/tags.js"></script>
+    </body>
+</html>

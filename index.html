@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="utf-8">
+        <meta name="description"
+            content="Introducción sobre la web">
+        <meta name="keywords"
+            content="experiencia, opinión, artículo, noticia">
+        <title>Bienvenido a a esta página</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- Importamos los CSS principal y el suyo -->
+        <link rel="stylesheet" href="css/main.css">
+        <link rel="stylesheet" href="css/index.css">
+        <link rel="icon" type="image/x-icon" href="img/favicon.ico">
+    </head>
+    <body>
+        <header>
+            <!--
+                Imagen NO generada con https://designer.microsoft.com/image-creator pero con otra IA similar.
+                Se bloqueó el navegadro y no pude apuntar el sitio.
+            -->
+            <img src="img/logo.jpg" alt="logo"><!--
+              Al posicionar como inline-block los elementos dentro del header (no es la mejor opción),
+              los espacios cuentan y alteran el resultado. Por eso he añadido este comentario.
+              Los he posicionado así para seguir las instrucciones del ejercicio.
+         --><section>
+                <h1 id="site-title">Bienvenido a a esta página</h1>
+                <!--
+                    Código para solventar el que el menú ocupe toda la ventana cuando es pequeña
+                    Se ofrece un menu alternativo con ayuda de CSS:
+                    Cuando el usuario hace clic en el ícono de hamburguesa (la etiqueta),
+                    el estado del checkbox cambia.
+                    Este cambio de estado puede ser detectado con CSS (usando el selector :checked)
+                    o JavaScript para mostrar u ocultar el menú.
+                -->
+                <!-- Crea un checkbox que servirá como interuptor para mostrar u ocultar el label -->
+                <input type="checkbox" id="menu-toggle" class="menu-toggle">
+                <!-- Asocia el label que se mostrará/ocultará, con el "menú amburguesa", al checkbox -->
+                <label for="menu-toggle" class="menu-icon">&#9776;</label>
+                <!-- Este es el menú principal -->
+                <nav>
+                    <ul><!-- Desactivo el enlace de la página actual -->
+                        <li><a href="#" class="a--disabled">Presentación</a></li>
+                        <li><a href="articulos.html">Artículos</a></li>
+                        <li><a href="noticias.html">Noticias</a></li>
+                        <li><a href="contacto.html">Contacto</a></li>
+                    </ul>
+                </nav>
+            </section>
+        </header>
+        <!-- He considerado mejor usar el main aquí en lugar de un section y poner dentro el main -->
+        <main>
+            <!-- Carusel de artículos que van pasado y se controlan con CSS. Ver index.css -->
+            <aside id="carousel-container">
+                <div><!--
+                        Creo que sería mejor un div que una section dentro de otra.
+                        De poner un section, pondría el h2 para conservar la semantica y que no de errores, pero lo ocultaría.
+                        <h2 style="display: none;">Listado de artículos</h2>
+                    -->
+                    <!-- Primera de las 4 secciones del carrusel -->
+                    <article class="slide">
+                        <a href="https://www.pexels.com/es-es/@vasilis-karkalas-155349971/" target="_blank">
+                            <h2>Grand Canyon · Free Stock Photo. Puedes conseguir más fotos aquí &#128070;.</h2>
+                            <img src="img/pexels-vasilis-karkalas-155349971-11558775-optimizada.jpg" alt="Grand Canyon">
+                        </a>
+                    </article>
+                    <!-- Segunda escena -->
+                    <article class="slide">
+                        <a href="https://www.birt.eus" target="_blank">
+                            <h2>CIFP de Aprendizajes Virtuales y Digitalizados (BIRTLH) es el único
+                            centro público de Euskadi que ofrece estudios de Formación Profesional a Distancia.</h2>
+                            <img src="img/birtlh.png" alt="BirtLH">
+                        </a>
+                    </article>
+                    <!-- Tercera escena -->
+                    <article class="slide">
+                        <a href="https://es.wikipedia.org/wiki/Linux_Mint" target="_blank">
+                            <h2>Linux Mint es una distribución de GNU/Linux comunitaria de origen franco-irlandesa
+                            basada en Ubuntu, y a su vez en Debian, que tiene por objetivo proveer «un sistema
+                            operativo moderno, elegante y cómodo que sea tanto poderoso como fácil de usar» [wikipedia.org].</h2>
+                            <img src="img/LinuxMint22-Wilma-English-optimizada.png" alt="Linux Mint">
+                        </a>
+                    </article>
+                    <!-- Cuarta escena -->
+                    <article class="slide">
+                        <a href="https://www.libreoffice.org" target="_blank">                            
+                            <h2>LibreOffice es una suite ofimática gratuita, basada en OpenOffice, que ofrece
+                                compatibilidad con Microsoft Office. [wikipedia.org]</h2>
+                            <img src="img/libreoffice.jpeg" alt="LibreOffice">
+                        </a>
+                    </article>
+                </div>
+            </aside>
+            <!-- Contenido principal de esta página -->
+            <section id="main--bienvenida" class="sticker--verde">
+                <h2>Presentación de la página</h2>
+                <p>Esta página web se ha desarrollado con fines educativos, para cumplir con los requisitos
+                    del ejercicio <b>"LMSGI02 Tarea evaluativa 2. Sitio Web."</b></p>
+                <p>Para consultar dudas y la generación de partes del código con información no disponible en los apuntes del curso,
+                    se ha recurrido a la utilización de Claude 3.5 Sonnet, de Anthropic. La adaptación de dicho código, la redacción
+                    de los escritos presentes en ella y la elavoración final de esta página, a excepción de la mayor parte del JavaScript,
+                    ha sido realizada por el alumno. Todavía quedan algunas partes del código por pulir, pero considera que el
+                    resultado actual cumple con lo solicitado en el ejercicio.</p>
+                <p>Los derechos de algunas de las imágenes utilizadas en esta página están reservados y pertenecen a sus autores.</p>
+                <p>Se han tomado imágenes del logo de Birt LH únicamente para hacer referencia a su sitio web.</p>
+            </section>
+        </main>
+        <!-- Inicio del pie de página -->
+        <footer>
+            <!-- Sección que corresponde a la nota informativa o banner -->
+            <aside id="footer--anuncio">
+                <a href="https://signstop5g.eu/es" target="_blank">
+                    <img src="img/logo_horizontal_es.jpg" alt="STOP-5G">
+                </a>
+                <a href="https://bioinitiative.org" target="_blank">
+                    <img src="img/bio-init-logo-large-layered-blue.gif" alt="Bioinitiative">
+                </a>
+                <a href="https://www.euskadi.eus/contenidos/informacion/salud_amb_campos_electrom/eu_def/adjuntos/Resolucion_1815_(Consejo_de_Europa).pdf" target="_blank">
+                    <img src="img/resolucion1815.jpg" alt="Resolución 1815">
+                </a>
+            </aside>
+            <!-- Autor y licencia -->
+            <p>This work is licensed under 
+                <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/?ref=chooser-v1" target="_blank" rel="license noopener noreferrer" 
+                    style="display:inline-block;">CC BY-NC-ND 4.0
+                    <img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" 
+                        src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1" alt="">
+                    <img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" 
+                        src="https://mirrors.creativecommons.org/presskit/icons/by.svg?ref=chooser-v1" alt="">
+                    <img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" 
+                        src="https://mirrors.creativecommons.org/presskit/icons/nc.svg?ref=chooser-v1" alt="">
+                    <img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" 
+                        src="https://mirrors.creativecommons.org/presskit/icons/nd.svg?ref=chooser-v1" alt="">
+                </a>
+            </p>
+            <!-- Contenedor derecho para badges relacionados con el sitio -->
+            <aside id="footer--badge">
+                <a href="http://www.w3.org/html/logo/">
+                <img src="https://www.w3.org/html/logo/badge/html5-badge-h-css3-device-graphics-multimedia-semantics-storage.png" width="293" height="64" 
+                    alt="HTML5 Powered with CSS3 / Styling, Device Access, Graphics, 3D &amp; Effects, Multimedia, Semantics, and Offline &amp; Storage" 
+                    title="HTML5 Powered with CSS3 / Styling, Device Access, Graphics, 3D &amp; Effects, Multimedia, Semantics, and Offline &amp; Storage">
+                </a>
+                <img src="img/creative-commons-badge.webp" alt="Creative-Commons">
+            </aside>
+        </footer>
+    </body>
+</html>
