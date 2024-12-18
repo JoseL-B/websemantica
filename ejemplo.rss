@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <!-- Información del canal -->
+    <channel>
+        <title>Ejemplo de feed RSS</title>
+        <link>https://ejemplo.com</link>
+        <description>Este es el feed RSS de ejemplo para el punto 15 de la tarea evaluativa.</description>
+        <language>es</language>
+        <!--<lastBuildDate>2024-12-18</lastBuildDate>-->
+        <lastBuildDate>Wed, 18 Dec 2024 13:48:00 +0100</lastBuildDate>
+        <category>test, ejercicio</category>
+        <generator>VSCode</generator>
+        <docs>https://www.rssboard.org/rss-specification</docs>
+        <image>
+            <url>https://validator.w3.org/feed/images/valid-rss-rogers.png</url>
+            <!-- El título tiene que ser el mismo que el del canal... -->
+            <title>Ejemplo de feed RSS</title>            
+            <link>https://ejemplo.com</link>
+            <width>88</width>
+	        <height>31</height>
+        </image>
+        <!--
+            Aconsejable añadir esta línea y declarar el espacio de nombres Atom en el elemento rss para seguir las recomendaciones
+            <atom:link href="https://ejemplo.com/feed.xml" rel="self" type="application/rss+xml" />
+            En este caso concreto, al ser un ejemplo y no tener acceso a esa URL, lo que haré será eliminar el href para que no de error al validarlo.
+        -->        
+        <atom:link rel="self" type="application/rss+xml" />
+
+        <!-- Primera entrada -->
+        <item>
+            <title>Esta es la primera entrada del feed</title>
+            <link>https://ejemplo.com/1.html</link>
+            <description><![CDATA[Esta es la descripción de la primera entrada.<br>
+                El contenido no es importante y <b>sólo está de relleno.</b><br>
+                De todas formas, tengo que poner algo para que se visualice con texto.]]>
+            </description>
+            <category>test, ejercicio</category>
+            <comments>https://ikastaroak.birt.eus/mod/quiz/view.php?id=52802</comments>
+            <!--
+                Para identificarlo de forma exclusiva.
+                En este caso concreto pongo un identificador único en lugar de una URL.
+                Por eso isPermaLink está a false.
+            -->
+            <guid isPermaLink="false">ejemplo_1</guid>
+            <pubDate>Wed, 18 Dec 2024 15:40:00 +0100</pubDate>
+        </item>
+        <!-- Segunda entrada -->
+        <item>
+            <title>Experiencia creando mi primer feed RSS</title>
+            <link>https://ejemplo.com/2.html</link>
+            <description><![CDATA[En este caso voy a decir que he tenido que recurrir a IA para consultar algunas dudas,
+                no para que me haga el ejercicio, sino porque algunas respuesta del <a href="https://validator.w3.org/feed/check.cgi">validador</a> 
+                no las entendía completamente. Por ejemplo:<br>
+                Unexpected Text &#8702; Text found in an element which does not support mixed content.<br>
+                Missing image element: title &#8702; Your feed is missing a required title element. Elements such as channel, image, and textInput require a title.<br>
+                <br>
+                He tenido que consultar las especificaciones de la etiqueta image, ya que no era tan simple como creía en un principio: 
+                https://www.rssboard.org/rss-specification#ltimagegtSubelementOfLtchannelgt <br>
+                Por otra parte, parece que la solución para poder escrivir etiquetas HTML dentro de description sin tener que seguir las normas de los documentos XML,
+                está en poner el contenido dentro de "CDATA", como si fuese un comentario.]]>
+            </description>
+            <category>test, ejercicio</category>
+            <comments>https://ikastaroak.birt.eus/mod/quiz/view.php?id=52802</comments>
+            <guid isPermaLink="false">ejemplo_2</guid>
+            <pubDate>Wed, 18 Dec 2024 15:50:00 +0100</pubDate>
+        </item>
+        <!-- Tercera entrada -->
+        <item>
+            <title>Comparando feeds de otras webs</title>
+            <link>https://ejemplo.com/3.html</link>
+            <description><![CDATA[He estado comparando el feed de la página de <a href="https://www.microsiervos.com/">Microsiervos</a>.<br>
+            He podido comprobar que han cambiado la estructura y ya no es la misma que aparece en el vídeo de la teoría con el nombre: 
+            <a href="https://youtu.be/DIu5eT-AiFI">LMSGI03 Documentos RSS</a>.]]>
+            </description>
+            <category>test, ejercicio</category>
+            <comments>https://ikastaroak.birt.eus/mod/quiz/view.php?id=52802</comments>
+            <guid isPermaLink="false">ejemplo_3</guid>
+            <pubDate>Wed, 18 Dec 2024 16:00:00 +0100</pubDate>
+        </item>
+    </channel>
+</rss>
